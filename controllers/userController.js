@@ -342,7 +342,7 @@ const createPaymentIntent = async (req, res) => {
                 quantity: 1,
             }],
             mode: 'payment',
-            success_url:`https://healthline-frontend.vercel.app/my-appointments?session_id={CHECKOUT_SESSION_ID}`,
+            success_url:`https://health-line-frontend-rhc2.vercel.app//my-appointments?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${process.env.VERCEL_URL}/my-appointments`,
         });
 
