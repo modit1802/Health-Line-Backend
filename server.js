@@ -14,7 +14,13 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectcloudinary();
 // middleware
-app.use(cors());
+app.use(cors(
+  {
+    origin: "https://health-line-frontend-rhc2.vercel.app",
+    credentials: true
+
+  }
+));
 app.use(bodyParser.json())
 app.use(express.json());
 app.use('/api/admin',adminRouter)
