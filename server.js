@@ -14,13 +14,26 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectcloudinary();
 // middleware
-app.use(cors(
-  {
-    origin: "https://health-line-frontend-rhc2.vercel.app",
-    credentials: true
 
-  }
-));
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://health-line-frontend-rhc2.vercel.app',
+  'https://health-line-frontend-chi.vercel.app',
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json())
 app.use(express.json());
 app.use('/api/admin',adminRouter)
