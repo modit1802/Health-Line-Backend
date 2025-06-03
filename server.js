@@ -19,6 +19,7 @@ const allowedOrigins = [
   'http://localhost:5173',
   'https://health-line-frontend-rhc2.vercel.app',
   'https://health-line-frontend-chi.vercel.app',
+  'https://health-line-admin-doctor-panel-iota.vercel.app'
 ];
 
 app.use(
